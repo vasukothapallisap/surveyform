@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quick Opinion Poll</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      padding: 40px;
+    }
+    .poll-container {
+      background: #fff;
+      padding: 20px 30px;
+      max-width: 500px;
+      margin: auto;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    label {
+      display: block;
+      margin-top: 20px;
+      color: #444;
+      font-weight: bold;
+    }
+    input[type="radio"] {
+      margin-right: 10px;
+    }
+    .submit-btn {
+      margin-top: 25px;
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .submit-btn:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="poll-container">
+    <h2>Quick Opinion Poll</h2>
+    <form action="/submit-opinion" method="post">
+      
+      <label>Do you like our new website design?</label>
+      <input type="radio" name="opinion" value="Yes" required> Yes<br>
+      <input type="radio" name="opinion" value="No"> No<br>
+      <input type="radio" name="opinion" value="Not Sure"> Not Sure<br>
+
+      <label>How likely are you to recommend us?</label>
+      <input type="radio" name="recommend" value="Very Likely" required> Very Likely<br>
+      <input type="radio" name="recommend" value="Somewhat Likely"> Somewhat Likely<br>
+      <input type="radio" name="recommend" value="Unlikely"> Unlikely<br>
+
+      <button type="submit" class="submit-btn">Submit</button>
+    </form>
+  </div>
+
+</body>
+</html>

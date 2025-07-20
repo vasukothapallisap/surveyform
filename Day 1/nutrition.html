@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vasu Products Store</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #2e8b57;
+      --secondary: #f9fafb;
+      --accent: #ffb703;
+      --text-dark: #2d3748;
+      --text-light: #718096;
+      --radius: 1rem;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Inter", sans-serif;
+    }
+
+    body {
+      background: var(--secondary);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    /* ---------- Header ---------- */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: white;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .brand {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .nav-links a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .cart {
+      position: relative;
+      font-size: 1.25rem;
+      cursor: pointer;
+    }
+
+    #cart-count {
+      position: absolute;
+      top: -0.4rem;
+      right: -0.6rem;
+      background: var(--accent);
+      color: white;
+      border-radius: 50%;
+      width: 1.25rem;
+      height: 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      background: url("https://source.unsplash.com/1600x600/?healthy,food") center/cover no-repeat;
+      height: 50vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+    }
+
+    .hero h1 {
+      background: rgba(213, 19, 19, 0.55);
+      padding: 1rem 2rem;
+      border-radius: var(--radius);
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+
+    /* ---------- Products ---------- */
+    .products-section {
+      max-width: 1200px;
+      margin: 4rem auto;
+      padding: 0 2rem;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: var(--radius);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    }
+
+    .product-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .product-content {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .product-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    .product-price {
+      color: var(--primary);
+      font-weight: 700;
+      margin-top: 0.25rem;
+    }
+
+    .product-desc {
+      color: var(--text-light);
+      font-size: 0.9rem;
+      flex: 1;
+    }
+
+    .add-btn {
+      margin-top: 1rem;
+      padding: 0.75rem;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: var(--radius);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.25s ease;
+    }
+
+    .add-btn:hover {
+      background: #246b43;
+    }
+
+    /* ---------- Footer ---------- */
+    footer {
+      background: white;
+      padding: 2rem;
+      box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.05);
+      text-align: center;
+      color: var(--text-light);
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 1.75rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="navbar">
+    <div class="brand">Vasu NutriMart</div>
+    <nav class="nav-links">
+      <a href="#">Home</a>
+      <a href="#products">Products</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="cart" aria-label="Shopping cart">
+      🛒<span id="cart-count">0</span>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Fuel Your Body, Elevate Your Life</h1>
+  </section>
+
+  <!-- Products Section -->
+  <section id="products" class="products-section">
+    <h2 style="text-align:center; margin-bottom:2rem; font-size:2rem;">Our Bestsellers</h2>
+    <div class="products-grid">
+      <!-- Product 1 -->
+      <div class="product-card">
+        <img class="product-image" src="Plant_Protein_2_be46f6ac-dbe0-4a70-9436-2d5cdf690d74.jpg" alt="Protein Powder" />
+        <div class="product-content">
+          <div class="product-title">Plant Protein</div>
+          <div class="product-price">₹499</div>
+          <p class="product-desc">Premium grass‑fed whey for muscle recovery and lean gains.</p>
+          <button class="add-btn" onclick="addToCart('Whey Protein Isolate')">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="product-card">
+        <img class="product-image" src="multi vitamin.jpg" alt="Multivitamin" />
+        <div class="product-content">
+          <div class="product-title">Multivitamin</div>
+          <div class="product-price">₹199</div>
+          <p class="product-desc">Complete spectrum of essential vitamins & minerals for overall wellness.</p>
+          <button class="add-btn" onclick="addToCart('Daily Multivitamin')">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="product-card">
+        <img class="product-image" src="omega-3-fish-oil-a.jpg" alt="Omega-3 Capsules" />
+        <div class="product-content">
+          <div class="product-title">Omega‑3 Fish Oil</div>
+          <div class="product-price">₹199</div>
+          <p class="product-desc">Ultra‑pure EPA & DHA for heart, brain & joint support.</p>
+          <button class="add-btn" onclick="addToCart('Omega‑3 Fish Oil')">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <p>© <span id="year"></span> Vasu NutriMart. All rights reserved.</p>
+    <p>Need help? Email us at <a href="mailto:support@nutrimart.com">support@vasunutrimart.com</a></p>
+  </footer>
+
+  <script>
+    // Update year dynamically
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Simple cart functionality
+    let cartCount = 0;
+
+    function addToCart(productName) {
+      cartCount += 1;
+      document.getElementById("cart-count").textContent = cartCount;
+      alert(`${productName} added to cart!`);
+    }
+  </script>
+</body>
+</html>
